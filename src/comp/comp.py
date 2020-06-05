@@ -54,7 +54,7 @@ print(f"Number 5: {e} \n")
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
+f = [(h.name, h.age) for h in humans if h.age > 27 and h.age < 32]
 print(f"Number 6: {f} \n")
 
 # Write a list comprehension that creates a list of new Humans like the old
