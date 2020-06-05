@@ -33,14 +33,17 @@ def cityreader(cities=[]):
   # `cities` list
     with open('cities.csv', newline='') as fp:
       reader = csv.reader(fp) # functionality to read from the 'cities.csv' file
-      # cities = [row for row in reader]
-      for record in reader:
-          # TODO exclude the first record from being imported into a City instance
-          # Each record (city) in the csv file is imported into a City instance
+      # Each row returned by a reader object is a list of strings or Unicode objects.
+      # Each record (city) in the csv file is imported into a City instance
+      for index, record in enumerate(reader):
+        # TODO exclude the first record from being imported into a City instance 
+        if index == 0: 
+          print(f"Not including this record for city instance: {record} \n")
+          pass
+        else:
           cities.append(City(record[0], record[3], record[4]))
-          print(cities)
 
-      return cities
+    return cities
 
 cityreader(cities)
 
